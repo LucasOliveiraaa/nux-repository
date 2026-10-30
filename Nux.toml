@@ -1,5 +1,5 @@
 [environment]
-name = "nux-repo"
+name = "nux-repository"
 
 # Packages to build and the version to select: "latest", "1.0.0", "^1", ">=1, <2"...
 [packages]
