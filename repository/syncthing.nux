@@ -1,0 +1,12 @@
+program syncthing {
+    version("2.1.7");
+
+    source(url = "https://release.syncthingcdn.net/v2.1.7/syncthing-linux-amd64-v2.1.7.tar.gz");
+
+    bash {
+        mkdir -p $NUX_PREFIX
+        tar -xzf $NUX_SOURCE_PATH -C $NUX_PREFIX --strip-components=1
+    }
+
+    set_bin("syncthing");
+}

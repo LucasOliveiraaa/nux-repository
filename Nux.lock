@@ -30,3 +30,17 @@ version = "2.103.3"
 requested = true
 source = "url+https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.tar.gz"
 checksum = "sha256:4c806978ffce1cec70853302a56d70ac6da4f19bae7adca4e1a8ab00633dd91d"
+
+[[package]]
+name = "rclone"
+version = "1.75.2"
+requested = true
+source = "url+https://downloads.rclone.org/v1.75.2/rclone-v1.75.2-linux-amd64.zip"
+checksum = "sha256:349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702"
+
+[[package]]
+name = "syncthing"
+version = "2.1.7"
+requested = true
+source = "url+https://release.syncthingcdn.net/v2.1.7/syncthing-linux-amd64-v2.1.7.tar.gz"
+checksum = "sha256:2edc416e7ed136b7c858ed5f3f02a3b8316589605e54c380228ceea7acbf0142"

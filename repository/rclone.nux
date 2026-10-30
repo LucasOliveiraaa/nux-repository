@@ -1,0 +1,13 @@
+program rclone {
+    version("1.75.2");
+    source(url = "https://downloads.rclone.org/v1.75.2/rclone-v1.75.2-linux-amd64.zip");
+
+    bash {
+        mkdir -p $NUX_PREFIX
+        unzip -q $NUX_SOURCE_PATH -d $NUX_PREFIX
+        mv $NUX_PREFIX/rclone-v1.75.2-linux-amd64/* $NUX_PREFIX
+        rm -rf $NUX_PREFIX/rclone-v1.75.2-linux-amd64
+    }
+
+    set_bin("rclone");
+}
