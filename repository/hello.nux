@@ -1,0 +1,14 @@
+// A package definition: how to build `hello` and the executable it provides.
+program hello {
+    version("1.0.0");
+
+    // Each line runs in its own shell; $NUX_PREFIX is the install directory.
+    bash {
+        mkdir -p $NUX_PREFIX/bin
+        printf '#!/bin/sh\necho "Hello from Nux!"\n' > $NUX_PREFIX/bin/hello
+        chmod +x $NUX_PREFIX/bin/hello
+    }
+
+    // Linked as $NUX_HOME/bin/hello after a successful build.
+    set_bin("bin/hello");
+}

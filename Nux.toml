@@ -1,0 +1,11 @@
+[environment]
+name = "nux-repo"
+
+# Packages to build and the version to select: "latest", "1.0.0", "^1", ">=1, <2"...
+[packages]
+code = "latest"
+firefox = "latest"
+
+# Directories of .nux package definitions, searched in order.
+[[repository]]
+path = "./repository"

@@ -1,0 +1,32 @@
+program code {
+    version("1.143.0");
+
+    add_dependency(code_bin, "latest");
+
+    source(local = "tools/code");
+
+    bash {
+        cp code-exe $NUX_PREFIX/
+        chmod +x "$NUX_PREFIX/code-exe"
+    }
+
+    rawbash {
+        mkdir -p "$HOME/.local/share/applications"
+
+        cat > "$HOME/.local/share/flatpak/exports/share/applications/nux-vscode.desktop" <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Visual Studio Code (Nux)
+Comment=Code Editing
+Exec=$HOME/.local/bin/code %F
+Terminal=false
+Categories=Development;IDE;TextEditor;
+StartupNotify=true
+EOF
+
+        chmod +x "$HOME/.local/share/flatpak/exports/share/applications/nux-vscode.desktop"
+    }
+
+    set_bin("code-exe", name = "code");
+}

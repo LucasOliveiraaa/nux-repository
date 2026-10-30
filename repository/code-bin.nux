@@ -1,0 +1,12 @@
+program code_bin {
+    version("1.143.0");
+
+    source(url = "https://update.code.visualstudio.com/latest/linux-x64/stable");
+
+    bash {
+        mkdir -p $NUX_PREFIX
+        tar -xzf $NUX_SOURCE_PATH -C $NUX_PREFIX --strip-components=1
+    }
+
+    set_bin("code", name = "code-bin");
+}
