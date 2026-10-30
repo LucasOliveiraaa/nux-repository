@@ -23,3 +23,10 @@ version = "159.0"
 requested = true
 source = "url+https://ftp.mozilla.org/pub/firefox/releases/159.0/linux-x86_64/en-US/firefox-159.0.tar.xz"
 checksum = "sha256:54536fcd120af484d4c56272a5a1cf4af57b9c713d1a3b1e775da192dd541fcd"
+
+[[package]]
+name = "gh"
+version = "2.103.3"
+requested = true
+source = "url+https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.tar.gz"
+checksum = "sha256:4c806978ffce1cec70853302a56d70ac6da4f19bae7adca4e1a8ab00633dd91d"

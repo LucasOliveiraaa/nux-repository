@@ -1,0 +1,13 @@
+program gh {
+    version("2.103.3");
+
+    source(url = "https://github.com/cli/cli/releases/download/v2.103.3/gh_2.103.3_linux_amd64.tar.gz");
+
+    bash {
+        mkdir -p $NUX_PREFIX
+        tar -xzf $NUX_SOURCE_PATH -C $NUX_PREFIX --strip-components=1
+        mv $NUX_PREFIX/bin/gh $NUX_PREFIX/gh
+    }
+
+    set_bin("gh");
+}
