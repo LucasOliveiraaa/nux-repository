@@ -1,0 +1,21 @@
+program ninja {
+    let release = "1.12.1";
+    version(release);
+
+    let host = host_version("ninja");
+    if host {
+        version(host);
+        use_host("ninja");
+        return;
+    }
+
+    source(url = "https://github.com/ninja-build/ninja/releases/download/v${release}/ninja-linux.zip");
+
+    bash {
+        mkdir -p $NUX_PREFIX/bin
+        unzip -q $NUX_SOURCE_PATH -d $NUX_PREFIX/bin
+        chmod +x $NUX_PREFIX/bin/ninja
+    }
+
+    set_bin("bin/ninja");
+}

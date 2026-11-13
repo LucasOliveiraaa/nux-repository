@@ -1,0 +1,20 @@
+program python {
+    let host = host_version("python3");
+    if host {
+        version(host);
+        use_host("python3");
+        return;
+    }
+
+    let release = "3.12.7";
+    version(release);
+
+    source(url = "https://www.python.org/ftp/python/${release}/Python-${release}.tgz");
+
+    bash {
+        tar -xzf $NUX_SOURCE_PATH --strip-components=1
+    }
+
+    autotools();
+    set_bin("bin/python3");
+}

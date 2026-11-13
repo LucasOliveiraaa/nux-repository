@@ -1,0 +1,24 @@
+
+program xephyr {
+    let release = "21.1.16";
+    version(release);
+
+    add_dependency(meson, "^1");
+    add_dependency(ninja, "^1");
+
+    add_dependency(xorgproto, "^2024");
+    add_dependency(pixman, "^0.44");
+    add_dependency(xtrans, "^1.5");
+    add_dependency(libxkbfile, "^1.1");
+    add_dependency(libxfont2, "^2");
+
+    source(git = "https://gitlab.freedesktop.org/xorg/xserver.git");
+
+    bash {
+        meson setup build -Dxephyr=true -Dxorg=false -Dxvfb=false -Dxnest=false -Ddocs=false -Ddevel-docs=false
+
+        ninja -C build
+    }
+
+    set_bin("build/hw/kdrive/ephyr/Xephyr", name = "Xephyr");
+}

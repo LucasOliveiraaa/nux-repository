@@ -1,0 +1,12 @@
+
+program libxfont2 {
+    let release = "2.0.6";
+    version(release);
+
+    source(url = "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-${release}.tar.xz");
+
+    add_dependency(xtrans, "^1.5");
+
+    autotools();
+    export_lib("Xfont2");
+}

@@ -1,0 +1,22 @@
+program meson {
+    let release = "1.6.1";
+    version(release);
+
+    let host = host_version("meson");
+    if host {
+        version(host);
+        use_host("meson");
+        return;
+    }
+
+    add_dependency(python, "^3");
+
+    source(url = "https://github.com/mesonbuild/meson/releases/download/${release}/meson-${release}.tar.gz");
+
+    bash {
+        mkdir -p $NUX_PREFIX
+        tar -xzf $NUX_SOURCE_PATH -C $NUX_PREFIX --strip-components=1
+    }
+
+    set_bin("meson.py", name = "meson");
+}

@@ -1,0 +1,16 @@
+
+program xorgproto {
+    let release = "2024.1";
+    version(release);
+
+    add_dependency(util_macros, "^1.20");
+
+    source(url = "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-${release}.tar.xz");
+
+    bash {
+        tar -xJf $NUX_SOURCE_PATH --strip-components=1
+        meson setup build --prefix=$NUX_PREFIX --libdir=lib -Dlegacy=true
+        ninja -C build
+        ninja -C build install
+    }
+}

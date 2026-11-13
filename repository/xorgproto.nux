@@ -1,0 +1,14 @@
+
+program xorgproto {
+    let release = "2024.1";
+    version(release);
+
+    source(url = "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-${release}.tar.xz");
+
+    bash {
+        meson setup build --prefix=$NUX_PREFIX -Dlegacy=true
+
+        ninja -C build
+        ninja -C build install
+    }
+}
